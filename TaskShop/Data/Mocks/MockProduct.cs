@@ -9,7 +9,16 @@ namespace TaskShop.Data.Mocks
 {
     public class MockProduct : IProduct
     {
-        public IEnumerable<Product> AllProduct { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public IEnumerable<Product> AllProduct 
+        {   get 
+            {
+                return new List<Product>
+                {
+                    new Product { Name = "wwrw", Description = "ewffwe"}
+                };
+            
+            } 
+        }
 
         public Product GetProdict(int ProductId)
         {

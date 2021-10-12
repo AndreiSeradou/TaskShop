@@ -8,7 +8,7 @@ namespace TaskShop.Data.Interfaces
 {
     public interface IProduct
     {
-        IEnumerable<Product> AllProduct { get; set; }
+        IEnumerable<Product> AllProduct { get; }
         Product GetProdict(int ProductId);
     }
 }
