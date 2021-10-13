@@ -1,0 +1,28 @@
+﻿@using TaskShop.Data.Models
+@model IEnumerable<Product>
+<h2>@ViewBag.Shop</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>ShopName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var product in Model)
+            {
+                <tr>
+                    <td contenteditable='true'>@product.Id</td>
+                    <td contenteditable='true'>@product.Name</td>
+                    <td contenteditable='true'>@product.Description</td>
+                    <td contenteditable='true'>@product.ShopId</td>
+                </tr>
+            }
+        }
+
+        ...
+    </tbody>
+</table>

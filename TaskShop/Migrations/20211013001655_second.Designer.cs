@@ -9,8 +9,8 @@ using TaskShop.Data.DB;
 namespace TaskShop.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20211013000913_first")]
-    partial class first
+    [Migration("20211013001655_second")]
+    partial class second
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,6 +31,9 @@ namespace TaskShop.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ShopName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

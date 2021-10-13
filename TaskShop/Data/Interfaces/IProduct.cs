@@ -10,6 +10,7 @@ namespace TaskShop.Data.Interfaces
     {
         Task<IEnumerable<Product>> GetAllProductAsync();
         Task<Product> GetProductAsync(string name);
+        Task<IEnumerable<Product>> GetProductByShopAsync(int id);
         Task AddProductAsync(Product product);
         Task DeleteProductAsync(string name);
     }

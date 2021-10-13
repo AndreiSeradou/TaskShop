@@ -2,7 +2,7 @@
 
 namespace TaskShop.Migrations
 {
-    public partial class first : Migration
+    public partial class second : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace TaskShop.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ShopName = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,12 +38,12 @@ namespace TaskShop.Migrations
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "Id", "Description", "Name" },
+                columns: new[] { "Id", "Description", "Name", "ShopName" },
                 values: new object[,]
                 {
-                    { 1, "my product", "bread" },
-                    { 2, "my product", "bread" },
-                    { 3, "my product", "bread" }
+                    { 1, "my product", "bread", null },
+                    { 2, "my product", "bread", null },
+                    { 3, "my product", "bread", null }
                 });
 
             migrationBuilder.InsertData(

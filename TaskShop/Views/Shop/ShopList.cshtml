@@ -1,15 +1,34 @@
 ﻿@using TaskShop.Data.Models
-@model IEnumerable<Product>
+@model IEnumerable<Shop>
 <h2>@ViewBag.Shop</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>OperatingMode</th>
+            <th>Product</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var shop in Model)
+            {
+                <tr>
+                            <td contenteditable='true'>@shop.Id</td>
+                            <td contenteditable='true'>@shop.Name</td>
+                            <td contenteditable='true'>@shop.Address</td>
+                            <td contenteditable='true'>@shop.OperatingMode</td>
+                            <td><p><a href="/Product/ProductList">Продукты</a></p></td>
+                </tr>
+            }
+        }
 
-@{
-    foreach (var shop in Model)
-    {
+        ...
+    </tbody>
+</table>
 
-        <h1>@shop.Name</h1>
-
-    }
-}
 
 @*<style>
         #zatemnenie {

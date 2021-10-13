@@ -24,9 +24,9 @@ namespace TaskShop.Data.DB
             modelBuilder.Entity<Product>().HasData(
                new Product[]
                {
-                new Product {Id = 1, Name = "bread", Description = "my product" },
-                new Product {Id = 2, Name = "bread", Description = "my product" },
-                new Product {Id = 3, Name = "bread", Description = "my product" }
+                new Product {Id = 1, Name = "bread", Description = "my product" , ShopId = 1},
+                new Product {Id = 2, Name = "bread", Description = "my product" , ShopId = 2},
+                new Product {Id = 3, Name = "bread", Description = "my product" , ShopId = 3}
                });
         }
     }

@@ -46,5 +46,11 @@ namespace TaskShop.Data.Repository
                 .AsNoTracking()
                 .FirstOrDefaultAsync(product => product.Name == name)!;
         }
+
+        public async Task<IEnumerable<Product>> GetProductByShopAsync(int id)
+        {
+            return await _appDBContext.Product.AsNoTracking().Where(p => p.ShopId == id).ToListAsync();
+
+        }
     }
 }
