@@ -31,8 +31,8 @@ namespace TaskShop.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ShopName")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ShopId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -43,19 +43,22 @@ namespace TaskShop.Migrations
                         {
                             Id = 1,
                             Description = "my product",
-                            Name = "bread"
+                            Name = "brea1d",
+                            ShopId = 1
                         },
                         new
                         {
                             Id = 2,
                             Description = "my product",
-                            Name = "bread"
+                            Name = "bread2",
+                            ShopId = 2
                         },
                         new
                         {
                             Id = 3,
                             Description = "my product",
-                            Name = "bread"
+                            Name = "bread3",
+                            ShopId = 3
                         });
                 });
 
@@ -84,21 +87,21 @@ namespace TaskShop.Migrations
                         {
                             Id = 1,
                             Address = "heryzo",
-                            Name = "MyShop",
+                            Name = "MyShop1",
                             OperatingMode = "my shop"
                         },
                         new
                         {
                             Id = 2,
                             Address = "heryzo",
-                            Name = "MyShop",
+                            Name = "MyShop2",
                             OperatingMode = "my shop"
                         },
                         new
                         {
                             Id = 3,
                             Address = "heryzo",
-                            Name = "MyShop",
+                            Name = "MyShop3",
                             OperatingMode = "my shop"
                         });
                 });

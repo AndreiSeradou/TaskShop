@@ -26,7 +26,7 @@ namespace TaskShop.Data.Repository
 
         public async Task AddProductAsync(Product product)
         {
-            await _appDBContext.Product.AddAsync(new Product { Name = product.Name, Description = product.Description }).ConfigureAwait(false);
+            await _appDBContext.Product.AddAsync(new Product { Name = product.Name, Description = product.Description, ShopId = product.ShopId}).ConfigureAwait(false);
             await _appDBContext.SaveChangesAsync().ConfigureAwait(false);
         }
 
@@ -40,11 +40,28 @@ namespace TaskShop.Data.Repository
             }
         }
 
+        public async Task DeleteProductAsync(int id)
+        {
+            var entity = await GetProductAsync(id).ConfigureAwait(false);
+            if (entity != null)
+            {
+                _appDBContext.Product.Remove(entity);
+                await _appDBContext.SaveChangesAsync().ConfigureAwait(false);
+            }
+        }
+
         public Task<Product> GetProductAsync(string name)
         {
             return _appDBContext.Product
                 .AsNoTracking()
                 .FirstOrDefaultAsync(product => product.Name == name)!;
+        }
+
+        public Task<Product> GetProductAsync(int id)
+        {
+            return _appDBContext.Product
+                .AsNoTracking()
+                .FirstOrDefaultAsync(product => product.Id == id)!;
         }
 
         public async Task<IEnumerable<Product>> GetProductByShopAsync(int id)

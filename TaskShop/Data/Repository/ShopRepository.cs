@@ -21,8 +21,16 @@ namespace TaskShop.Data.Repository
         {
             await _appDBContext.Shop.AddAsync(new Shop { Name = shop.Name, Address = shop.Address, OperatingMode = shop.OperatingMode}).ConfigureAwait(false);
             await _appDBContext.SaveChangesAsync().ConfigureAwait(false);
+            
         }
-
+        public bool isEmptyTable()
+        {
+            if (!_appDBContext.Shop.Any())
+            {
+                return true;
+            }
+            return false;
+        }
         public async Task<IEnumerable<Shop>> GetAllShopAsync()
         {
             return await _appDBContext.Shop

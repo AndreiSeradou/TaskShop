@@ -39,20 +39,20 @@ namespace TaskShop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseRouting();
-          
+
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Shop}/{action=ShopList}");
+            });
+
 
             //app.UseEndpoints(endpoints =>
             //{
-            //    endpoints.MapControllerRoute(
-            //        name: "default",
-            //        pattern: "{controller=Shop}/{action=ListS}");
+            //    endpoints.MapDefaultControllerRoute();
             //});
-          
-           
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapDefaultControllerRoute();
-            });
 
         }
     }

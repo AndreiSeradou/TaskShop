@@ -10,5 +10,6 @@ namespace TaskShop.Data.Interfaces
     {
         Task<IEnumerable<Shop>> GetAllShopAsync();
         Task AddShopAsync(Shop shop);
+        public bool isEmptyTable();
     }
 }

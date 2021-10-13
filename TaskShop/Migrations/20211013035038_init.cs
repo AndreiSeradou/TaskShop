@@ -2,7 +2,7 @@
 
 namespace TaskShop.Migrations
 {
-    public partial class second : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace TaskShop.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ShopName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ShopId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -38,12 +38,12 @@ namespace TaskShop.Migrations
 
             migrationBuilder.InsertData(
                 table: "Product",
-                columns: new[] { "Id", "Description", "Name", "ShopName" },
+                columns: new[] { "Id", "Description", "Name", "ShopId" },
                 values: new object[,]
                 {
-                    { 1, "my product", "bread", null },
-                    { 2, "my product", "bread", null },
-                    { 3, "my product", "bread", null }
+                    { 1, "my product", "brea1d", 1 },
+                    { 2, "my product", "bread2", 2 },
+                    { 3, "my product", "bread3", 3 }
                 });
 
             migrationBuilder.InsertData(
@@ -51,9 +51,9 @@ namespace TaskShop.Migrations
                 columns: new[] { "Id", "Address", "Name", "OperatingMode" },
                 values: new object[,]
                 {
-                    { 1, "heryzo", "MyShop", "my shop" },
-                    { 2, "heryzo", "MyShop", "my shop" },
-                    { 3, "heryzo", "MyShop", "my shop" }
+                    { 1, "heryzo", "MyShop1", "my shop" },
+                    { 2, "heryzo", "MyShop2", "my shop" },
+                    { 3, "heryzo", "MyShop3", "my shop" }
                 });
         }
 
