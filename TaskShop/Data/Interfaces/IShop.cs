@@ -8,6 +8,7 @@ namespace TaskShop.Data.Interfaces
 {
     public interface IShop
     {
-         IEnumerable<Shop> AllShop { get; }
+        Task<IEnumerable<Shop>> GetAllShopAsync();
+        Task AddShopAsync(Shop shop);
     }
 }

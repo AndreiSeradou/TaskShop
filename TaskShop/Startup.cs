@@ -3,9 +3,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using TaskShop.Data;
 using TaskShop.Data.DB;
 using TaskShop.Data.Interfaces;
-using TaskShop.Data.Mocks;
+using TaskShop.Data.Repository;
 
 namespace TaskShop
 {
@@ -25,8 +26,8 @@ namespace TaskShop
         {
             
             services.AddDbContext<AppDBContext>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
-            services.AddTransient<IProduct,MockProduct>();
-            services.AddTransient<IShop, MockShop>();
+            services.AddTransient<IProduct,ProductRepository>();
+            services.AddTransient<IShop,ShopRepository>();
             //services.AddControllersWithViews();
             services.AddMvc();
         }
@@ -38,6 +39,7 @@ namespace TaskShop
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseRouting();
+          
 
             //app.UseEndpoints(endpoints =>
             //{
@@ -45,6 +47,8 @@ namespace TaskShop
             //        name: "default",
             //        pattern: "{controller=Shop}/{action=ListS}");
             //});
+          
+           
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();

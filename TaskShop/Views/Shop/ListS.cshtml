@@ -1,132 +1,143 @@
-﻿<h2>@ViewBag.Shop</h2>
-<h1>Все магазины</h1>
-<style>
-    #zatemnenie {
-        background: rgba(102, 102, 102, 0.5);
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        display: none;
-    }
+﻿@using TaskShop.Data.Models
+@model IEnumerable<Product>
+<h2>@ViewBag.Shop</h2>
 
-    #okno {
-        width: 300px;
-        height: 50px;
-        text-align: center;
-        padding: 15px;
-        border: 3px solid #0000cc;
-        border-radius: 10px;
-        color: #0000cc;
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        background: #fff;
-    }
+@{
+    foreach (var shop in Model)
+    {
 
-    #zatemnenie:target {
-        display: block;
-    }
+        <h1>@shop.Name</h1>
 
-    .close {
-        display: inline-block;
-        border: 1px solid #0000cc;
-        color: #0000cc;
-        padding: 0 12px;
-        margin: 10px;
-        text-decoration: none;
-        background: #f2f2f2;
-        font-size: 14pt;
-        cursor: pointer;
     }
+}
 
-        .close:hover {
-            background: #e6e6ff;
+@*<style>
+        #zatemnenie {
+            background: rgba(102, 102, 102, 0.5);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
         }
-</style>
 
-<body>
+        #okno {
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            padding: 15px;
+            border: 3px solid #0000cc;
+            border-radius: 10px;
+            color: #0000cc;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            background: #fff;
+        }
 
-    <div id="zatemnenie">
-        <div id="okno">
-            Список продуктов<br>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>ZIP</th>
-                        <th>Birthday</th>
-                        <th>Points</th>
-                        <th>Average</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @{
-                        foreach (var shop in Model)
-                        {
-                            <tr>
-                                <td contenteditable='true'>Gloria</td>
-                                <td contenteditable='true'>Reeves</td>
-                                <td contenteditable='true'>67439</td>
-                                <td contenteditable='true'>
-                                </td>
-                                <td contenteditable='true'>4</td>
-                                <td contenteditable='true'>0.1</td>
-                                <td contenteditable='true'>$50</td>
-                            </tr>
-                        }
-                    }
+        #zatemnenie:target {
+            display: block;
+        }
 
-                    ...
-                </tbody>
-            </table>
-            <a href="#" class="close">Закрыть окно</a>
-        </div>
-    </div>
+        .close {
+            display: inline-block;
+            border: 1px solid #0000cc;
+            color: #0000cc;
+            padding: 0 12px;
+            margin: 10px;
+            text-decoration: none;
+            background: #f2f2f2;
+            font-size: 14pt;
+            cursor: pointer;
+        }
 
-   
-</body>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>ZIP</th>
-            <th>Birthday</th>
-            <th>Points</th>
-            <th>Average</th>
-            <th>Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var shop in Model)
-            {
-                
-                <tr>
-                    <td contenteditable='true'>Gloria</td>
-                    <td contenteditable='true'>Reeves</td>
-                    <td contenteditable='true'>67439</td>
-                    <td>
-                        <a href="#zatemnenie">Список продуктов</a>
-
-                    </td>
-                    <td>4</td>
-                    <td>0.1</td>
-                    <td>$50</td>
-                </tr>
-                
+            .close:hover {
+                background: #e6e6ff;
             }
-        }
+    </style>
 
-        ...
-    </tbody>
-</table>
+    <body>
+
+        <div id="zatemnenie">
+            <div id="okno">
+                Список продуктов<br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>ZIP</th>
+                            <th>Birthday</th>
+                            <th>Points</th>
+                            <th>Average</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            foreach (var shop in Model)
+                            {
+                                <tr>
+                                    <td contenteditable='true'>Gloria</td>
+                                    <td contenteditable='true'>Reeves</td>
+                                    <td contenteditable='true'>67439</td>
+                                    <td contenteditable='true'>
+                                    </td>
+                                    <td contenteditable='true'>4</td>
+                                    <td contenteditable='true'>0.1</td>
+                                    <td contenteditable='true'>$50</td>
+                                </tr>
+                            }
+                        }
+
+                        ...
+                    </tbody>
+                </table>
+                <a href="#" class="close">Закрыть окно</a>
+            </div>
+        </div>
+
+
+    </body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>ZIP</th>
+                <th>Birthday</th>
+                <th>Points</th>
+                <th>Average</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var shop in Model)
+                {
+
+                    <tr>
+                        <td contenteditable='true'>Gloria</td>
+                        <td contenteditable='true'>Reeves</td>
+                        <td contenteditable='true'>67439</td>
+                        <td>
+                            <a href="#zatemnenie">Список продуктов</a>
+
+                        </td>
+                        <td>4</td>
+                        <td>0.1</td>
+                        <td>$50</td>
+                    </tr>
+
+                }
+            }
+
+            ...
+        </tbody>
+    </table>*@
 
